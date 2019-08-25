@@ -1,0 +1,25 @@
+{
+  "name": "servicio-noticias-api",
+  "version": "1.0.0",
+  "description": "servicio-noticias-api",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/figonzal1/TPS-Spring.git"
+  },
+  "author": "Eduardo Reyes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/figonzal1/TPS-Spring/issues"
+  },
+  "homepage": "https://github.com/figonzal1/TPS-Spring/servicio-noticias-api/#readme",
+  "dependencies": {
+    "amqplib": "^0.5.5",
+    "axios": "^0.19.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  }
+}
