@@ -4,7 +4,7 @@
   "description": "servicio-noticias-api",
   "main": "server/server.js",
   "scripts": {
-    "test": "jshint ./test/hello.js"
+    "test": "mocha ./test/**.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
     "express": "^4.16.4"
   },
   "devDependencies": {
-    "jshint": "^2.10.2"
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0"
   }
 }

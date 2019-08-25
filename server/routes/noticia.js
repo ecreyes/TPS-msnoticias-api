@@ -55,4 +55,7 @@ let traducirCategoria = (categoria) =>{
     return category;
 }
 
-module.exports = app;
+module.exports = {
+    app,
+    traducirCategoria
+};
