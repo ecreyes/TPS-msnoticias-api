@@ -4,22 +4,25 @@
   "description": "servicio-noticias-api",
   "main": "server/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jshint ./test/hello.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/figonzal1/TPS-Spring.git"
+    "url": "git+https://github.com/ecreyes/TPS-msnoticias-api"
   },
   "author": "Eduardo Reyes",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/figonzal1/TPS-Spring/issues"
+    "url": "https://github.com/ecreyes/TPS-msnoticias-api/issues"
   },
-  "homepage": "https://github.com/figonzal1/TPS-Spring/servicio-noticias-api/#readme",
+  "homepage": "https://github.com/ecreyes/TPS-msnoticias-api/#readme",
   "dependencies": {
     "amqplib": "^0.5.5",
     "axios": "^0.19.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "jshint": "^2.10.2"
   }
 }
