@@ -11,8 +11,7 @@ app.use(bodyParser.json());
 
 app.use(require('./routes/routes'));
 
-/*
+
 app.listen(process.env.PORT,()=>{
     console.log(`Server ON puerto ${process.env.PORT}`);
 });
-*/
