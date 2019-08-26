@@ -3,6 +3,7 @@ const app = express();
 const axios = require('axios');
 const { sentData } = require('../rabbitMQ/rabbit');
 const amqp = require('amqplib/callback_api');
+const Translate = require("./translate");
 
 
 amqp.connect(process.env.RABBITMQ, function (error0, connection) {
@@ -68,7 +69,7 @@ let getByCategoria = async (rcategoria) => {
     try {
         let apiKey = "38d810cb7aec47adbd73a988ba6cc09e";
         let categoria = rcategoria;
-        let category = traducirCategoria(categoria);
+        let category = Translate.traducirCategoria(categoria);
         let url = `https://newsapi.org/v2/top-headlines?country=co&category=${category}&apiKey=${apiKey}`;
 
         let consulta = await axios.get(url);
@@ -84,21 +85,6 @@ let getByCategoria = async (rcategoria) => {
     }
 }
 
-let traducirCategoria = (categoria) => {
-    let category = "";
-    if (categoria == "deportes") {
-        category = "sports";
-    }
-    if (categoria == "entretenimiento") {
-        category = "entertainment";
-    }
-    if (categoria == "tecnologia") {
-        category = "technology";
-    }
-    return category;
-}
-
 module.exports = {
-    app,
-    traducirCategoria
+    app
 };

@@ -1,22 +1,22 @@
 const assert = require('chai').assert;
-const Noticia = require("../server/routes/noticia");
+const Translate = require("../server/routes/translate");
 
 describe("Categorias de noticias",function(){
   it("traducir deportes",function(){
     data = "deportes";
-    traductor = Noticia.traducirCategoria(data);
+    traductor = Translate.traducirCategoria(data);
     assert.deepEqual("sports",traductor);
   });
 
   it("traducir entretenimiento",function(){
     data = "entretenimiento";
-    traductor = Noticia.traducirCategoria(data);
+    traductor = Translate.traducirCategoria(data);
     assert.deepEqual("entertainment",traductor);
   });
   
   it("traducir tecnologia",function(){
     data = "tecnologia";
-    traductor = Noticia.traducirCategoria(data);
+    traductor = Translate.traducirCategoria(data);
     assert.deepEqual("technology",traductor);
   });
 
