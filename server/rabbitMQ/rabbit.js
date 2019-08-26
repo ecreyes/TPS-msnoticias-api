@@ -20,7 +20,7 @@ let sentData = (data) => {
                 });
                 channel.publish(exchange,"noticia.lista", Buffer.from(msg));
                 console.log(" [x] Sent %s: '%s'", severity, msg);
-                connection.close();
+                //connection.close();
                 return resolve("mensaje enviado");
             });
         });
