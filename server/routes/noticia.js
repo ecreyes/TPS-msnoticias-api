@@ -86,5 +86,6 @@ let getByCategoria = async (rcategoria) => {
 }
 
 module.exports = {
-    app
+    app,
+    getNews
 };
