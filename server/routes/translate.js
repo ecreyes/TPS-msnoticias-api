@@ -9,6 +9,18 @@ let traducirCategoria = (categoria) => {
     if (categoria == "tecnologia") {
         category = "technology";
     }
+    if(categoria == "negocios"){
+        category = "business";
+    }
+    if(categoria == "general"){
+        category = "general";
+    }
+    if(categoria == "salud"){
+        category = "health";
+    }
+    if(categoria == "ciencia"){
+        category = "science";
+    }
     return category;
 }
 

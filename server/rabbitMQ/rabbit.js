@@ -18,7 +18,7 @@ let sentData = (data) => {
                 channel.assertExchange(exchange, 'direct', {
                     durable: false
                 });
-                channel.publish(exchange,"noticia.lista", Buffer.from(msg));
+                channel.publish(exchange,"noticia.lista.api", Buffer.from(msg));
                 console.log(" [x] Sent %s: '%s'", severity, msg);
                 //connection.close();
                 return resolve("mensaje enviado");
