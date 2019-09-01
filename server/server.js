@@ -10,11 +10,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
-//app.use(require('./routes/routes'));
-
 setInterval(()=>{
-    console.log("enviando...");
-    Noticia.getNews();
+    console.log("enviando noticias");
+    Noticia.getByCategoria("deportes");
 },15000);
 
 app.listen(process.env.PORT,()=>{
