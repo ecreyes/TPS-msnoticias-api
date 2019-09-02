@@ -12,15 +12,7 @@ app.use(bodyParser.json());
 
 setInterval(()=>{
     console.log("enviando noticias");
-    Noticia.getByCategoria("deportes");
-    /*
-    Noticia.getByCategoria("entretenimiento");
-    Noticia.getByCategoria("tecnologia");
-    Noticia.getByCategoria("negocios");
-    Noticia.getByCategoria("general");
-    Noticia.getByCategoria("salud");
-    Noticia.getByCategoria("ciencia");
-    */
+    Noticia.getAllnoticias();
 },15000);
 
 app.listen(process.env.PORT,()=>{
