@@ -1,3 +1,12 @@
 language: node_js
 node_js:
  - "node"
+
+services:
+ - docker
+
+before_install:
+#Docker login
+ - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+ - docker build -t ecreyes/ms-noticias-api .
+ - docker push ecreyes/ms-noticias-api
