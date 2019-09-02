@@ -38,20 +38,20 @@ describe("Prueba de integración rabbitmq",function(){
                 if (error1) {
                     throw error1;
                 }
-                var exchange = 'api_exchange';
+                var exchange = 'it_exchange';
         
-                channel.assertExchange(exchange, 'fanout', {
+                channel.assertExchange(exchange, 'direct', {
                     durable: false
                 });
         
-                channel.assertQueue('noticia_request_cud', {
+                channel.assertQueue('it_test_cola', {
                     exclusive: false
                 }, function (error2, q) {
                     if (error2) {
                         throw error2;
                     }
-                    channel.bindQueue(q.queue, exchange, '');
-                    console.log("esperando respuesta xd");
+                    channel.bindQueue(q.queue, exchange, 'it_ruta');
+                    console.log("esperando respuesta...");
                     channel.consume(q.queue, function (msg) {
                         if (msg.content) {
                             console.log(msg.content.toString());
@@ -81,14 +81,14 @@ let sentData = (data) => {
                 if (error1) {
                     throw error1;
                 }
-                var exchange = 'noticia_exchange';
+                var exchange = 'it_exchange';
                 var msg = data;
                 var severity = 'info';
 
                 channel.assertExchange(exchange, 'direct', {
                     durable: false
                 });
-                channel.publish(exchange,"noticia.lista.api", Buffer.from(msg));
+                channel.publish(exchange,"it_ruta", Buffer.from(msg));
                 console.log(msg);
                 resolve(connection);
             });
