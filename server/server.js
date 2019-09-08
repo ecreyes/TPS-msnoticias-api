@@ -49,12 +49,12 @@ app.use(csp({
   setAllHeaders: false,
  
   // Set to true if you want to disable CSP on Android where it can be buggy.
-  disableAndroid: false,
+  disableAndroid: true,
  
   // Set to false if you want to completely disable any user-agent sniffing.
   // This may make the headers less compatible but it will be much faster.
   // This defaults to `true`.
-  browserSniff: true
+  browserSniff: false
 }));
 
 if(process.env.MODE!="test"){
