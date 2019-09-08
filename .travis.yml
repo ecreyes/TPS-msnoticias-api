@@ -6,10 +6,11 @@ services:
  - docker
 
 stages:
- -unit test
- -integration test
- -zap owasp test
- -deploy
+ - unit test
+ - integration test
+ - zap owasp test
+ - name: deploy
+   if: tag IS present
 
 jobs:
  include:
@@ -26,8 +27,8 @@ jobs:
        - docker run --name owasp --link msnoticiasapi -t owasp/zap2docker-weekly zap-full-scan.py -t http://msnoticiasapi:3000
   - stage: deploy
     script:
-      - docker build -t ecreyes/ms-noticias-api .
-      - docker push ecreyes/ms-noticias-api
+      - docker build -t ecreyes/ms-noticias-api:"$TRAVIS_TAG" .
+      - docker push ecreyes/ms-noticias-api:"$TRAVIS_TAG"
 
 before_install:
 #Docker login
