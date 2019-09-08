@@ -3,6 +3,10 @@ const express = require('express');
 const app = express();
 const Noticia = require("./routes/noticia");
 
+//mitigación de vuelnrabilidad csp
+const helmet = require('helmet');
+app.use(helmet());
+
 
 const bodyParser = require('body-parser');
 // parse application/x-www-form-urlencoded
