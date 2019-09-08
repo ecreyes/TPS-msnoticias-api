@@ -37,3 +37,4 @@ before_install:
 branches:
  only:
   - master
+  - /(^v[0-9]+\.[0-9]+\.[0-9]+)(\-dev)?$/
