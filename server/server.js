@@ -9,6 +9,8 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
+//mitigación de vulnerabilidad
+app.disable('x-powered-by');
 
 if(process.env.MODE!="test"){
     console.log("MODO PRODUCCIÓN");
