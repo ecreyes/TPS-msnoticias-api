@@ -5,8 +5,26 @@ node_js:
 services:
  - docker
 
+stages:
+ -unit test
+ -integration test
+ -deploy
+
+jobs:
+ include:
+  - stage: unit test
+    script: npm run unittest
+  - stage: integration test
+    script: npm run ittest
+  - stage: deploy
+    script:
+      - docker build -t ecreyes/ms-noticias-api .
+      - docker push ecreyes/ms-noticias-api
+
 before_install:
 #Docker login
  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
- - docker build -t ecreyes/ms-noticias-api .
- - docker push ecreyes/ms-noticias-api
+
+branches:
+ only:
+  -master

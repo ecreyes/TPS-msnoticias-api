@@ -4,7 +4,8 @@
   "description": "servicio-noticias-api",
   "main": "server/server.js",
   "scripts": {
-    "test": "mocha ./test/**.js"
+    "unittest": "mocha ./test/categoria.spec.js",
+    "ittest": "mocha ./test/IT.spec.js"
   },
   "repository": {
     "type": "git",
