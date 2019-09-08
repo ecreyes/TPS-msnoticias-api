@@ -20,7 +20,7 @@ jobs:
   - stage: zap owasp test
     script:
       - docker build -t ecreyes/ms-noticias-api .
-      - docker run -d --name msnoticiasapi -e "process.env.MODE=test" -t ecreyes/ms-noticias-api
+      - docker run -d --name msnoticiasapi -e MODE="test" -t ecreyes/ms-noticias-api
       - sleep 15
     after_script:
        - docker run --name owasp --link msnoticiasapi -t owasp/zap2docker-weekly zap-full-scan.py -t http://msnoticiasapi:3000
