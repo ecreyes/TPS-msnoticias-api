@@ -8,6 +8,7 @@ services:
 stages:
  -unit test
  -integration test
+ -zap owasp test
  -deploy
 
 jobs:
@@ -16,6 +17,13 @@ jobs:
     script: npm run unittest
   - stage: integration test
     script: npm run ittest
+  - stage: zap owasp test
+    script:
+      - docker build -t ecreyes/ms-noticias-api .
+      - docker run -d --name msnoticiasapi -e "process.env.MODE=test" -t ecreyes/ms-noticias-api
+      - sleep 15
+    after_script:
+       - docker run --name owasp --link msnoticiasapi -t owasp/zap2docker-weekly zap-full-scan.py -t http://msnoticiasapi:3000
   - stage: deploy
     script:
       - docker build -t ecreyes/ms-noticias-api .
@@ -28,3 +36,4 @@ before_install:
 branches:
  only:
   -master
+  -owasp

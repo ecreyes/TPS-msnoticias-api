@@ -10,10 +10,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
-setInterval(()=>{
-    console.log("enviando noticias");
-    Noticia.getAllnoticias();
-},15000);
+if(process.env.MODE!="test"){
+    console.log("MODO PRODUCCIÓN");
+    setInterval(()=>{
+        console.log("enviando noticias");
+        Noticia.getAllnoticias();
+    },15000);
+}else{
+    console.log("MODO TESTING ZAP OWASP");
+}
 
 app.listen(process.env.PORT,()=>{
     console.log(`Server ON puerto ${process.env.PORT}`);
