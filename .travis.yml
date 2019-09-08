@@ -32,8 +32,3 @@ jobs:
 before_install:
 #Docker login
  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-
-branches:
- only:
-  -master
-  -owasp
