@@ -17,13 +17,6 @@ app.disable('x-powered-by');
 const xssFilter = require('x-xss-protection');
 app.use(xssFilter());
 
-//mitigación de vuelnerabilidad csp owasp
-app.use(function(req, res, next) {
-    res.setHeader("Content-Security-Policy", "script-src 'self' https://newsapi.org/");
-    return next();
-});
-
-
 if(process.env.MODE!="test"){
     console.log("MODO PRODUCCIÓN");
     setInterval(()=>{
