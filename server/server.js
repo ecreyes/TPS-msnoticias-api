@@ -12,6 +12,10 @@ app.use(bodyParser.json());
 //mitigación de vulnerabilidad
 app.disable('x-powered-by');
 
+//mitigación de vulnerabilidad xss
+const xssFilter = require('x-xss-protection')
+app.use(xssFilter())
+
 if(process.env.MODE!="test"){
     console.log("MODO PRODUCCIÓN");
     setInterval(()=>{
