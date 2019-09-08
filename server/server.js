@@ -26,7 +26,7 @@ if(process.env.MODE!="test"){
     setInterval(()=>{
         console.log("enviando noticias");
         Noticia.getAllnoticias();
-    },15000);
+    },300000);
 }else{
     console.log("MODO TESTING ZAP OWASP");
 }
